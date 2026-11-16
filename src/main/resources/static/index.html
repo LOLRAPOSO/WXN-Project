@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WXN · Atendimento</title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+<main class="chat" aria-label="Chat de atendimento WXN">
+
+    <header class="chat__topo">
+        <div class="chat__marca" aria-hidden="true">W</div>
+        <div class="chat__identidade">
+            <h1 class="chat__titulo">Atendimento WXN</h1>
+            <p class="chat__status"><span class="chat__ponto" aria-hidden="true"></span>Assistente virtual · online</p>
+        </div>
+        <button type="button" class="chat__recomecar" id="btn-recomecar" title="Começar uma nova conversa">
+            Recomeçar
+        </button>
+    </header>
+
+    <section class="chat__mensagens" id="mensagens" role="log" aria-live="polite" aria-label="Mensagens da conversa"></section>
+
+    <form class="chat__entrada" id="form-mensagem" autocomplete="off">
+        <label for="campo-mensagem" class="visualmente-oculto">Digite sua mensagem</label>
+        <input type="text" id="campo-mensagem" class="chat__campo"
+               placeholder="Digite o número da opção…" maxlength="500">
+        <button type="submit" class="chat__enviar" id="btn-enviar" aria-label="Enviar mensagem">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M3.4 20.4 21 12 3.4 3.6 3.4 10.2 15 12 3.4 13.8z" fill="currentColor"/>
+            </svg>
+        </button>
+    </form>
+
+</main>
+<script src="js/chat.js"></script>
+</body>
+</html>
