@@ -1,5 +1,4 @@
 package br.com.wxn.chatbot.servico;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,7 +7,7 @@ import jakarta.persistence.Id;
  * Registro persistido de uma pergunta que pode ser usada pelo chatbot.
  */
 @Entity
-public class AcessoDados {
+public class AcessoDados{
     @Id
     private int id;
 
@@ -35,11 +34,5 @@ public class AcessoDados {
 
     public String getPergunta() {
         return pergunta;
-    }
-
-    public void verificarId() {
-        if (id > 3) {
-            System.out.println("Não é possível acessar tal pergunta");
-        }
     }
 }

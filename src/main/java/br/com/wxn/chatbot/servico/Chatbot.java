@@ -7,9 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import br.com.wxn.chatbot.conhecimento.OpcaoMenu;
+import br.com.wxn.chatbot.enums.Setor;
 import br.com.wxn.chatbot.modelo.RespostaChatbot;
 import br.com.wxn.chatbot.modelo.RespostaChatbot.ItemMenu;
-import br.com.wxn.chatbot.servico.AtendimentoMock;
 
 
 /**
@@ -28,7 +28,6 @@ public class Chatbot {
 
     /** Aceita "2", " 2 ", "2." ou "2)". */
     private static final Pattern NUMERO = Pattern.compile("^\\s*(\\d{1,3})\\s*[.)]?\\s*$");
-
     private final MotorTriagem motorTriagem;
 
     public Chatbot(MotorTriagem motorTriagem) {
@@ -56,8 +55,11 @@ public class Chatbot {
 
         Matcher matcher = NUMERO.matcher(texto);
         if (matcher.matches()) {
+            
             Optional<OpcaoMenu> escolhida = motorTriagem.escolher(Integer.parseInt(matcher.group(1)));
             if (escolhida.isPresent()) {
+                if((escolhida.get().getSetor()).equals(Setor.ATENDIMENTO_HUMANO))
+                    return new RespostaChatbot(List.of(AtendimentoMock.getRespostaAtendente()),List.of());
                 return new RespostaChatbot(List.of(escolhida.get().getResposta()), List.of());
             }
         }
