@@ -1,14 +1,16 @@
 package br.com.wxn.chatbot.servico;
 
-import br.com.wxn.chatbot.conhecimento.OpcaoMenu;
-import br.com.wxn.chatbot.modelo.RespostaChatbot;
-import br.com.wxn.chatbot.modelo.RespostaChatbot.ItemMenu;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import br.com.wxn.chatbot.conhecimento.OpcaoMenu;
+import br.com.wxn.chatbot.modelo.RespostaChatbot;
+import br.com.wxn.chatbot.modelo.RespostaChatbot.ItemMenu;
+import br.com.wxn.chatbot.servico.AtendimentoMock;
+
 
 /**
  * Regras da conversa com o cliente.
@@ -42,7 +44,7 @@ public class Chatbot {
     public RespostaChatbot mostrarMenu() {
         return new RespostaChatbot(List.of(PEDIDO_ESCOLHA), itensDoMenu());
     }
-
+    
     /**
      * Trata o que o cliente digitou ou clicou.
      * Um número válido escolhe a opção. Qualquer outra coisa mostra o menu de novo.

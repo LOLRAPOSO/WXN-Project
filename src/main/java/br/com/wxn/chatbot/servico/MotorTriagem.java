@@ -43,6 +43,7 @@ public class MotorTriagem {
         if (numero < 1 || numero > menuInicial.size()) {
             return Optional.empty();
         }
+        
         return Optional.of(menuInicial.get(numero - 1));
     }
 
